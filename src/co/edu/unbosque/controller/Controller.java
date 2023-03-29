@@ -31,8 +31,8 @@ public class Controller implements ActionListener {
 		case "EnviarBtn":
 			String userInput = MV.getMP().getInput().getText();
 			String dataComboBox = (String) MV.getMP().getComboBox().getSelectedItem();
-			if (dataComboBox.equals("InOrden")) {
-				if (userInput.matches("[*a-zA-Z]{8,30}")) {
+			if (userInput.matches("[*a-zA-Z]{8,30}")) {
+				if (dataComboBox.equals("InOrden")) {
 					char[] inputArray = userInput.toCharArray();
 					for (char x : inputArray) {
 						tree.insertNode(x, (int) x);
@@ -40,14 +40,14 @@ public class Controller implements ActionListener {
 					tree.showInOrderR();
 					System.out.println("---------");
 					tree.showInOrder(tree.getRoot());
-				} else {
-					JOptionPane.showMessageDialog(null,
-							"La palabra ingresada debe contener minimo 8 caracteres y " + "no pueden haber espacios");
+				} else if (dataComboBox.equals("PreOrden")) {
+					System.out.println("PreOrden");
+				} else if (dataComboBox.equals("PostOrden")) {
+					System.out.println("PostOrden");
 				}
-			} else if (dataComboBox.equals("PreOrden")) {
-				System.out.println("PreOrden");
-			} else if (dataComboBox.equals("PostOrden")) {
-				System.out.println("PostOrden");
+			} else {
+				JOptionPane.showMessageDialog(null,
+						"La palabra ingresada debe contener minimo 8 caracteres y " + "no pueden haber espacios");
 			}
 			break;
 		}
