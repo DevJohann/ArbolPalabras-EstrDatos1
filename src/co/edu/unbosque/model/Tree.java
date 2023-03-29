@@ -73,6 +73,7 @@ public class Tree {
 			return;
 		}
 		stack.push(root);
+
 		while (!stack.isEmpty()) {
 			Node newNode = stack.pop();
 			System.out.print(newNode.getData() + " ");

@@ -32,11 +32,11 @@ public class Controller implements ActionListener {
 			String userInput = MV.getMP().getInput().getText();
 			String dataComboBox = (String) MV.getMP().getComboBox().getSelectedItem();
 			if (userInput.matches("[*a-zA-Z]{8,30}")) {
+				char[] inputArray = userInput.toCharArray();
+				for (char x : inputArray) {
+					tree.insertNode(x, (int) x);
+				}
 				if (dataComboBox.equals("InOrden")) {
-					char[] inputArray = userInput.toCharArray();
-					for (char x : inputArray) {
-						tree.insertNode(x, (int) x);
-					}
 					tree.showInOrderR();
 					System.out.println("---------");
 					tree.showInOrder(tree.getRoot());
