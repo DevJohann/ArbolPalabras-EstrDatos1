@@ -1,5 +1,8 @@
 package co.edu.unbosque.view;
 
+import java.awt.BorderLayout;
+import java.awt.Font;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -8,24 +11,33 @@ import javax.swing.JTextField;
 public class MainPanel extends JPanel{
 	
 	private JLabel title;
+	private JLabel text;
 	private JButton send;
 	private JTextField input;
 	
 	public MainPanel() {
-		title = new JLabel();
-		title.setBounds(120, 20, 120, 30);
+		
+		
+		setLayout(null);
+		
+		title = new JLabel("Arbol binario");
+		title.setFont(new Font("Times new Roman", Font.BOLD, 20));
+		title.setBounds(190, 20, 120, 30);
 		add(title);
 		
-		send = new JButton();
-		send.setBounds(120, 300, 120, 30);
+		text = new JLabel("Ingrese una palabra:");
+		text.setBounds(50, 156, 120, 30);
+		add(text);
+		
+		send = new JButton("Enviar");
+		send.setBounds(200, 220, 80, 20);
 		add(send);
 		
 		input = new JTextField();
-		input.setBounds(120, 200, 120, 30);
+		input.setBounds(180, 160, 120, 20);
 		add(input);
 		
 		setVisible(true);
-		setLayout(null);
 	}
 
 	/**
