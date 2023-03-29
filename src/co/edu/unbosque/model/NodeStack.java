@@ -1,11 +1,11 @@
 package co.edu.unbosque.model;
 
 public class NodeStack {
-	
+
 	private NodeStack next;
-	private int data;
-	
-	public NodeStack(int data) {
+	private Node data;
+
+	public NodeStack(Node data) {
 		this.data = data;
 		next = null;
 	}
@@ -18,11 +18,11 @@ public class NodeStack {
 		this.next = next;
 	}
 
-	public int getData() {
+	public Node getData() {
 		return data;
 	}
 
-	public void setData(int data) {
+	public void setData(Node data) {
 		this.data = data;
 	}
 

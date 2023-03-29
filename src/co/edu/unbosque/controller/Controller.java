@@ -31,29 +31,25 @@ public class Controller implements ActionListener {
 		case "EnviarBtn":
 			String userInput = MV.getMP().getInput().getText();
 			String dataComboBox = (String) MV.getMP().getComboBox().getSelectedItem();
-			if(dataComboBox.equals("InOrden")) {
-				if(userInput.matches("[*a-zA-Z]{8,30}") && !repeatWord(userInput)) {
+			if (dataComboBox.equals("InOrden")) {
+				if (userInput.matches("[*a-zA-Z]{8,30}")) {
 					char[] inputArray = userInput.toCharArray();
-					for(char x : inputArray) {
-						tree.insertNode(x, (int)x);
+					for (char x : inputArray) {
+						tree.insertNode(x, (int) x);
 					}
 					tree.showInOrderR();
 					System.out.println("---------");
 					tree.showInOrder(tree.getRoot());
-				}else {
-					JOptionPane.showMessageDialog(null, "La palabra ingresada debe contener minimo 8 caracteres y "
-							+ "no pueden haber espacios");
+				} else {
+					JOptionPane.showMessageDialog(null,
+							"La palabra ingresada debe contener minimo 8 caracteres y " + "no pueden haber espacios");
 				}
-			}else if(dataComboBox.equals("PreOrden")) {
+			} else if (dataComboBox.equals("PreOrden")) {
 				System.out.println("PreOrden");
-			}else if(dataComboBox.equals("PostOrden")) {
+			} else if (dataComboBox.equals("PostOrden")) {
 				System.out.println("PostOrden");
 			}
 			break;
 		}
-	}
-	
-	public boolean repeatWord(String str) {
-		return str.length() != str.chars().distinct().count();
 	}
 }
