@@ -42,6 +42,7 @@ public class Controller implements ActionListener {
 					tree.showInOrder(tree.getRoot());
 				} else if (dataComboBox.equals("PreOrden")) {
 					System.out.println("PreOrden");
+					tree.showPreOrder();
 				} else if (dataComboBox.equals("PostOrden")) {
 					System.out.println("PostOrden");
 				}

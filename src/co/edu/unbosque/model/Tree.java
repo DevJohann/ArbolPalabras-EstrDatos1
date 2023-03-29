@@ -77,6 +77,12 @@ public class Tree {
 			Node newNode = stack.pop();
 			System.out.print(newNode.getData() + " ");
 
+			if (newNode.getRight() != null) {
+				stack.push(newNode.getRight());
+			}
+			if (newNode.getLeft() != null) {
+				stack.push(newNode.getLeft());
+			}
 		}
 	}
 
