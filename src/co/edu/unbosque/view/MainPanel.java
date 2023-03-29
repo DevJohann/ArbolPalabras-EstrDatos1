@@ -1,9 +1,11 @@
 package co.edu.unbosque.view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -14,11 +16,24 @@ public class MainPanel extends JPanel{
 	private JLabel text;
 	private JButton send;
 	private JTextField input;
+	private String strBox[] = {"InOrden", "PreOrden", "PostOrden"};
+	private JComboBox<String> comboBox;
+	private JLabel labelBox;
+	
+	private Font fontt = new Font("Times new Roman", 0, 14);
 	
 	public MainPanel() {
 		
-		
 		setLayout(null);
+		
+		labelBox = new JLabel("Orden de muestra:");
+		labelBox.setBounds(56, 120, 120, 20);
+		labelBox.setFont(fontt);
+		add(labelBox);
+		
+		comboBox = new JComboBox<>(strBox);
+		comboBox.setBounds(180, 120, 120, 20);
+		add(comboBox);
 		
 		title = new JLabel("Arbol binario");
 		title.setFont(new Font("Times new Roman", Font.BOLD, 20));
@@ -26,11 +41,15 @@ public class MainPanel extends JPanel{
 		add(title);
 		
 		text = new JLabel("Ingrese una palabra:");
-		text.setBounds(50, 156, 120, 30);
+//		text.setForeground(Color.BLACK);
+		text.setFont(fontt);
+		text.setBounds(56, 154, 120, 30);
 		add(text);
 		
 		send = new JButton("Enviar");
 		send.setBounds(200, 220, 80, 20);
+		send.setBackground(Color.BLACK);
+		send.setForeground(Color.white);
 		add(send);
 		
 		input = new JTextField();
@@ -80,6 +99,14 @@ public class MainPanel extends JPanel{
 	 */
 	public void setInput(JTextField input) {
 		this.input = input;
+	}
+
+	public JComboBox<String> getComboBox() {
+		return comboBox;
+	}
+
+	public void setComboBox(JComboBox<String> comboBox) {
+		this.comboBox = comboBox;
 	}
 
 }

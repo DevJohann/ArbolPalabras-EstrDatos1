@@ -3,6 +3,8 @@ package co.edu.unbosque.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 import co.edu.unbosque.model.Tree;
 import co.edu.unbosque.view.MainView;
 
@@ -15,11 +17,6 @@ public class Controller implements ActionListener {
 		MV = new MainView();
 		tree = new Tree();
 		setListeners();
-		execute();
-	}
-
-	public void execute() {
-
 	}
 
 	public void setListeners() {
@@ -33,12 +30,30 @@ public class Controller implements ActionListener {
 		switch (e.getActionCommand()) {
 		case "EnviarBtn":
 			String userInput = MV.getMP().getInput().getText();
-			char[] inputArray = userInput.toCharArray();
-			for(char x : inputArray) {
-				tree.insertNode(x, (int)x);
+			String dataComboBox = (String) MV.getMP().getComboBox().getSelectedItem();
+			if(dataComboBox.equals("InOrden")) {
+				if(userInput.matches("[*a-zA-Z]{8,30}") && !repeatWord(userInput)) {
+					char[] inputArray = userInput.toCharArray();
+					for(char x : inputArray) {
+						tree.insertNode(x, (int)x);
+					}
+					tree.showInOrderR();
+					System.out.println("---------");
+					tree.showInOrder(tree.getRoot());
+				}else {
+					JOptionPane.showMessageDialog(null, "La palabra ingresada debe contener minimo 8 caracteres y "
+							+ "no pueden haber espacios");
+				}
+			}else if(dataComboBox.equals("PreOrden")) {
+				System.out.println("PreOrden");
+			}else if(dataComboBox.equals("PostOrden")) {
+				System.out.println("PostOrden");
 			}
 			break;
 		}
 	}
-
+	
+	public boolean repeatWord(String str) {
+		return str.length() != str.chars().distinct().count();
+	}
 }

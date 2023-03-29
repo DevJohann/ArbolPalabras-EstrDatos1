@@ -1,6 +1,7 @@
 package co.edu.unbosque.view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 
 import javax.swing.JFrame;
 
@@ -10,7 +11,9 @@ public class MainView extends JFrame{
 
 	public MainView() {
 		MP = new MainPanel();
-
+		MP.setBackground(Color.GRAY);
+		
+		setTitle("ArbolPalabras");
 		getContentPane().add(MP, BorderLayout.CENTER);
 		setVisible(true);
 	//	setLayout(null);
