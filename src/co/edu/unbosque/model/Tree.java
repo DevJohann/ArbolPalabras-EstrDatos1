@@ -88,7 +88,28 @@ public class Tree {
 	}
 
 	public void showPostOrder() {
+		if (root == null) {
+			return;
+		}
+		Stack stack2 = new Stack();
+		stack.push(root);
 
+		while (!stack.isEmpty()) {
+			Node newNode = stack.pop();
+			stack2.push(newNode);
+
+			if (newNode.getRight() != null) {
+				stack.push(newNode.getRight());
+			}
+			if (newNode.getLeft() != null) {
+				stack.push(newNode.getLeft());
+			}
+		}
+
+		while (!stack2.isEmpty()) {
+			Node newNode = stack2.pop();
+			System.out.print(newNode.getData() + " ");
+		}
 	}
 
 	public Node getRoot() {

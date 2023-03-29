@@ -45,6 +45,7 @@ public class Controller implements ActionListener {
 					tree.showPreOrder();
 				} else if (dataComboBox.equals("PostOrden")) {
 					System.out.println("PostOrden");
+					tree.showPostOrder();
 				}
 			} else {
 				JOptionPane.showMessageDialog(null,
