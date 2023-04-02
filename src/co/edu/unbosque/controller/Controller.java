@@ -38,14 +38,20 @@ public class Controller implements ActionListener {
 				}
 				if (dataComboBox.equals("InOrden")) {
 			//		tree.showInOrderR();
-					System.out.println("---------");
 					tree.showInOrder(tree.getRoot());
+					MV.getMP().getInput().setText("");
+					tree.deleteTree();
 				} else if (dataComboBox.equals("PreOrden")) {
 					System.out.println("PreOrden");
 					tree.showPreOrder();
+					MV.getMP().getInput().setText("");
+					tree.deleteTree();
 				} else if (dataComboBox.equals("PostOrden")) {
 					System.out.println("PostOrden");
 					tree.showPostOrder();
+					tree.showPostOrden();
+					MV.getMP().getInput().setText("");
+					tree.deleteTree();
 				}
 			} else {
 				JOptionPane.showMessageDialog(null,

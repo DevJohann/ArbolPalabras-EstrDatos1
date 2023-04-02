@@ -11,6 +11,10 @@ public class Tree {
 		root = null;
 		stack = new Stack();
 	}
+	
+	public void deleteTree() {
+		root = null;
+	}
 
 	public void insertNode(char data, int dataAscii) {
 		Node newNode = new Node(dataAscii, data);
@@ -120,6 +124,19 @@ public class Tree {
 			str += newNode.getData() + " ";
 		}
 		JOptionPane.showMessageDialog(null, str);
+	}
+	
+	public void showPostOrden(Node roott) {
+		if(roott != null) {
+			showPostOrden(roott.getLeft());
+			showPostOrden(roott.getRight());
+			System.out.println(roott.getData()+" ");
+		}
+	}
+	
+	public void showPostOrden() {
+		showPostOrden(root);
+		System.out.println();
 	}
 
 	public Node getRoot() {
