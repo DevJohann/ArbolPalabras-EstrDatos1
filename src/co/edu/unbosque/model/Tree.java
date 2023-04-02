@@ -110,11 +110,11 @@ public class Tree {
 			Node newNode = stack.pop();
 			stack2.push(newNode);
 
-			if (newNode.getRight() != null) {
-				stack.push(newNode.getRight());
-			}
 			if (newNode.getLeft() != null) {
 				stack.push(newNode.getLeft());
+			}
+			if (newNode.getRight() != null) {
+				stack.push(newNode.getRight());
 			}
 		}
 
