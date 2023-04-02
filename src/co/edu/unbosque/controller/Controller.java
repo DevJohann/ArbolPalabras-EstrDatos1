@@ -37,7 +37,7 @@ public class Controller implements ActionListener {
 					tree.insertNode(x, (int) x);
 				}
 				if (dataComboBox.equals("InOrden")) {
-					tree.showInOrderR();
+			//		tree.showInOrderR();
 					System.out.println("---------");
 					tree.showInOrder(tree.getRoot());
 				} else if (dataComboBox.equals("PreOrden")) {

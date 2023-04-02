@@ -1,5 +1,7 @@
 package co.edu.unbosque.model;
 
+import javax.swing.JOptionPane;
+
 public class Tree {
 
 	private Node root;
@@ -31,7 +33,7 @@ public class Tree {
 			}
 		}
 	}
-
+/*
 	public void showInOrderR(Node root) {
 		if (root != null) {
 			showInOrderR(root.getLeft());
@@ -43,7 +45,7 @@ public class Tree {
 	public void showInOrderR() {
 		showInOrderR(root);
 		System.out.println();
-	}
+	}*/
 
 	public void showInOrder(Node node) {
 		if (root == null) {
@@ -51,6 +53,7 @@ public class Tree {
 		}
 		Node currentNode = root;
 		Node response = null;
+		String str = "";
 		while (currentNode != null || !stack.isEmpty()) {
 			while (currentNode != null) {
 				stack.push(currentNode);
@@ -58,8 +61,10 @@ public class Tree {
 			}
 			response = stack.pop();
 			System.out.print(response.getData() + " ");
+			str += response.getData()+" ";
 			currentNode = response.getRight();
 		}
+		JOptionPane.showMessageDialog(null, str);
 	}
 
 	/*
@@ -69,6 +74,7 @@ public class Tree {
 	 * searchNode(node.getRight(), data); } }
 	 */
 	public void showPreOrder() {
+		String str = "";
 		if (root == null) {
 			return;
 		}
@@ -77,7 +83,7 @@ public class Tree {
 		while (!stack.isEmpty()) {
 			Node newNode = stack.pop();
 			System.out.print(newNode.getData() + " ");
-
+			str += newNode.getData()+" ";
 			if (newNode.getRight() != null) {
 				stack.push(newNode.getRight());
 			}
@@ -85,12 +91,14 @@ public class Tree {
 				stack.push(newNode.getLeft());
 			}
 		}
+		JOptionPane.showMessageDialog(null, str);
 	}
 
 	public void showPostOrder() {
 		if (root == null) {
 			return;
 		}
+		String str = "";
 		Stack stack2 = new Stack();
 		stack.push(root);
 
@@ -109,7 +117,9 @@ public class Tree {
 		while (!stack2.isEmpty()) {
 			Node newNode = stack2.pop();
 			System.out.print(newNode.getData() + " ");
+			str += newNode.getData() + " ";
 		}
+		JOptionPane.showMessageDialog(null, str);
 	}
 
 	public Node getRoot() {
