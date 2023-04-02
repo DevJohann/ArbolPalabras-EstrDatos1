@@ -135,6 +135,7 @@ public class Tree {
 	}
 	
 	public void showPostOrden() {
+		System.out.println("\n-------------\n");
 		showPostOrden(root);
 		System.out.println();
 	}
